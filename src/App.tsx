@@ -60,7 +60,7 @@ function App() {
           <Suspense fallback={<RouteFallback />}>
             <div
               key={location.pathname}
-              className={`page-enter ${isViewportLocked ? 'min-h-full lg:h-full' : 'min-h-full'}`}
+              className={`page-enter flex flex-1 flex-col ${isViewportLocked ? 'min-h-full lg:h-full' : 'min-h-full'}`}
             >
               <Routes location={location}>
                 <Route path="/" element={<HomePage />} />
