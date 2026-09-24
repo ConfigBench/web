@@ -24,7 +24,7 @@ export function StatusQueryForm({ config, isLoading, onQuery }: StatusQueryFormP
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-none border border-line bg-[#15151f] p-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-none border border-line bg-surface p-4">
       <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center">
         <div className="relative flex-1">
           <input

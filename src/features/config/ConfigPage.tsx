@@ -119,7 +119,7 @@ export function ConfigPage() {
         title="Drag to resize"
         className="group hidden w-2 shrink-0 cursor-col-resize items-center justify-center lg:flex"
       >
-        <div className="h-10 w-0.5 rounded-full bg-line transition-colors duration-150 group-hover:bg-[#585b70] group-active:bg-[var(--accent)]" />
+        <div className="h-10 w-0.5 rounded-full bg-line transition-colors duration-150 group-hover:bg-faint group-active:bg-[var(--accent)]" />
       </div>
 
       <div className="min-h-[460px] min-w-0 lg:min-h-0 lg:flex-1">

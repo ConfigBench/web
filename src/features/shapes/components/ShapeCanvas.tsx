@@ -410,7 +410,7 @@ export function ShapeCanvas({
       </div>
 
       <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-t border-line bg-panel px-3 py-2.5">
-        <div className="flex items-center gap-3 text-xs text-[#a6adc8]">
+        <div className="flex items-center gap-3 text-xs text-muted">
           {isPickingAnchor ? (
             <span className="flex items-center gap-1.5 font-mono text-xs text-[#ffd83d] animate-pulse">
               <Crosshair size={13} className="text-[#ffd83d]" />
@@ -421,10 +421,10 @@ export function ShapeCanvas({
               <Compass size={13} className="shrink-0 text-[var(--accent)]" />
               {anchor.enabled ? (
                 <span>
-                  In-Game: <strong className="text-[#cdd6f4]">X: {hoveredInfo.worldX}</strong>,{' '}
-                  <strong className="text-[#cdd6f4]">Y: {hoveredInfo.worldY}</strong>,{' '}
-                  <strong className="text-[#cdd6f4]">Z: {hoveredInfo.worldZ}</strong>{' '}
-                  <span className="text-[#6c7086]">
+                  In-Game: <strong className="text-text">X: {hoveredInfo.worldX}</strong>,{' '}
+                  <strong className="text-text">Y: {hoveredInfo.worldY}</strong>,{' '}
+                  <strong className="text-text">Z: {hoveredInfo.worldZ}</strong>{' '}
+                  <span className="text-dim">
                     (dx: {hoveredInfo.dx >= 0 ? `+${hoveredInfo.dx}` : hoveredInfo.dx}, dz:{' '}
                     {hoveredInfo.dz >= 0 ? `+${hoveredInfo.dz}` : hoveredInfo.dz}
                     {(mode === 'sphere' || mode === 'dome') && anchor.layer !== layer
@@ -436,14 +436,14 @@ export function ShapeCanvas({
               ) : (
                 <span>
                   Offset:{' '}
-                  <strong className="text-[#cdd6f4]">
+                  <strong className="text-text">
                     X: {hoveredInfo.dx >= 0 ? `+${hoveredInfo.dx}` : hoveredInfo.dx}
                   </strong>
                   ,{' '}
-                  <strong className="text-[#cdd6f4]">
+                  <strong className="text-text">
                     Z: {hoveredInfo.dz >= 0 ? `+${hoveredInfo.dz}` : hoveredInfo.dz}
                   </strong>{' '}
-                  <span className="text-[#6c7086]">
+                  <span className="text-dim">
                     ({Math.round(Math.hypot(hoveredInfo.dx, hoveredInfo.dz) * 10) / 10} blocks from center)
                   </span>
                 </span>
@@ -458,13 +458,13 @@ export function ShapeCanvas({
           )}
 
           {placedCount > 0 ? (
-            <span className="flex items-center gap-1 rounded-none border border-line bg-surface px-2 py-0.5 text-[11px] text-[#cdd6f4]">
+            <span className="flex items-center gap-1 rounded-none border border-line bg-surface px-2 py-0.5 text-[11px] text-text">
               <Check size={12} className="text-[var(--accent)]" />
               Placed: {placedCount}
               <button
                 type="button"
                 onClick={onClearPlaced}
-                className="ml-1.5 text-[#f38ba8] hover:underline"
+                className="ml-1.5 text-error hover:underline"
                 title="Reset placed blocks"
               >
                 Clear
@@ -485,7 +485,7 @@ export function ShapeCanvas({
             type="button"
             onClick={fitToScreen}
             title="Reset View / Fit to Screen"
-            className="mc-icon-btn h-8 rounded-none px-2.5 text-xs text-[#a6adc8] hover:text-[#cdd6f4]"
+            className="mc-icon-btn h-8 rounded-none px-2.5 text-xs text-muted hover:text-text"
           >
             <Maximize2 size={13} />
             <span className="ml-1 hidden md:inline">Fit View</span>
@@ -497,7 +497,7 @@ export function ShapeCanvas({
               onZoomChange(1);
             }}
             title="Reset to 100% Zoom"
-            className="mc-icon-btn h-8 rounded-none px-2.5 text-xs text-[#a6adc8] hover:text-[#cdd6f4]"
+            className="mc-icon-btn h-8 rounded-none px-2.5 text-xs text-muted hover:text-text"
           >
             <RotateCcw size={13} />
             <span className="ml-1 hidden md:inline">100%</span>

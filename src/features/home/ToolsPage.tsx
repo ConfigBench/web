@@ -76,15 +76,15 @@ export function ToolsPage() {
           <Wrench size={14} />
           <span>Workbench Directory</span>
         </div>
-        <h1 className="mt-2 font-mc text-3xl text-[#cdd6f4] sm:text-4xl">All Tools</h1>
-        <p className="font-mc mt-2 max-w-lg text-[13px] leading-relaxed text-[#a6adc8] sm:text-[14px]">
+        <h1 className="mt-2 font-mc text-3xl text-text sm:text-4xl">All Tools</h1>
+        <p className="font-mc mt-2 max-w-lg text-[13px] leading-relaxed text-muted sm:text-[14px]">
           Search or filter across our suite of client-side Minecraft creation and configuration tools.
         </p>
       </div>
 
       <div className="page-enter relative mt-6 w-full max-w-2xl" style={{ animationDelay: '60ms' }}>
         <div className="mc-input flex h-11 items-center gap-2.5 rounded-none px-3 shadow-inner">
-          <Search size={16} className="shrink-0 text-[#6c7086]" />
+          <Search size={16} className="shrink-0 text-dim" />
           <input
             ref={searchInputRef}
             type="text"
@@ -97,7 +97,7 @@ export function ToolsPage() {
               }
             }}
             placeholder="Search tools, formats, or keywords... (press '/' to focus)"
-            className="min-w-0 flex-1 bg-transparent font-mono text-xs text-[#cdd6f4] outline-none placeholder:text-[#6c7086]"
+            className="min-w-0 flex-1 bg-transparent font-mono text-xs text-text outline-none placeholder:text-dim"
           />
           {query ? (
             <button
@@ -107,12 +107,12 @@ export function ToolsPage() {
                 setQuery('')
                 searchInputRef.current?.focus()
               }}
-              className="mc-icon-btn h-6 w-6 rounded-none p-0 text-[#a6adc8] hover:text-[#cdd6f4]"
+              className="mc-icon-btn h-6 w-6 rounded-none p-0 text-muted hover:text-text"
             >
               <X size={12} />
             </button>
           ) : (
-            <kbd className="hidden shrink-0 rounded-none border border-line bg-[#1e1e2b] px-1.5 py-0.5 font-mono text-[10px] text-[#6c7086] sm:inline-block">
+            <kbd className="hidden shrink-0 rounded-none border border-line bg-panel px-1.5 py-0.5 font-mono text-[10px] text-dim sm:inline-block">
               /
             </kbd>
           )}
@@ -128,7 +128,7 @@ export function ToolsPage() {
                 onClick={() => setSelectedCategory(cat)}
                 data-active={isSelected}
                 className={cn(
-                  'mc-btn flex items-center gap-1.5 rounded-none px-2.5 py-1 text-xs text-[#a6adc8] transition-colors hover:text-[#cdd6f4]',
+                  'mc-btn flex items-center gap-1.5 rounded-none px-2.5 py-1 text-xs text-muted transition-colors hover:text-text',
                   isSelected && '!border-[var(--accent)] !text-[var(--accent)]',
                 )}
               >
@@ -143,9 +143,9 @@ export function ToolsPage() {
       <div className="relative mt-8 w-full max-w-6xl">
         {filteredTools.length === 0 ? (
           <div className="flex flex-col items-center justify-center gap-3 rounded-none border border-line/60 bg-surface/50 p-8 text-center">
-            <Compass size={28} className="text-[#6c7086]" />
-            <p className="font-mc text-base text-[#cdd6f4]">No matching tools found</p>
-            <p className="max-w-md text-xs text-[#a6adc8]">
+            <Compass size={28} className="text-dim" />
+            <p className="font-mc text-base text-text">No matching tools found</p>
+            <p className="max-w-md text-xs text-muted">
               No tools match <span className="font-mono text-[var(--accent)]">"{query}"</span>. Try searching for formats like{' '}
               <button
                 type="button"
@@ -193,8 +193,8 @@ export function ToolsPage() {
                 <section key={cat} className="flex flex-col gap-3">
                   <div className="flex items-center gap-2 border-b border-line/60 pb-2">
                     <span className="h-1.5 w-1.5 rounded-none bg-[var(--accent)]" />
-                    <h2 className="font-mc text-sm tracking-wide text-[#cdd6f4] uppercase">{cat}</h2>
-                    <span className="font-mono text-[10px] text-[#6c7086]">({categoryTools.length})</span>
+                    <h2 className="font-mc text-sm tracking-wide text-text uppercase">{cat}</h2>
+                    <span className="font-mono text-[10px] text-dim">({categoryTools.length})</span>
                   </div>
 
                   <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
@@ -224,7 +224,7 @@ function ToolCard({ tool }: { tool: ToolDef }) {
   return (
     <Link
       to={tool.to}
-      className="mc-btn group flex flex-col justify-between gap-3 rounded-none p-4 text-left transition-colors duration-150 hover:border-[var(--accent)]/70 hover:text-[#cdd6f4]"
+      className="mc-btn group flex flex-col justify-between gap-3 rounded-none p-4 text-left transition-colors duration-150 hover:border-[var(--accent)]/70 hover:text-text"
     >
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
@@ -232,23 +232,23 @@ function ToolCard({ tool }: { tool: ToolDef }) {
             <Icon size={18} />
           </span>
           <div className="flex items-center gap-1.5">
-            <span className="rounded-none border border-line bg-[#1e1e2b] px-1.5 py-0.5 font-mono text-[9px] text-[#6c7086] uppercase">
+            <span className="rounded-none border border-line bg-panel px-1.5 py-0.5 font-mono text-[9px] text-dim uppercase">
               {tool.category}
             </span>
             <ArrowRight
               size={14}
-              className="text-[#6c7086] opacity-0 transition-all duration-150 group-hover:translate-x-0.5 group-hover:text-[var(--accent)] group-hover:opacity-100"
+              className="text-dim opacity-0 transition-all duration-150 group-hover:translate-x-0.5 group-hover:text-[var(--accent)] group-hover:opacity-100"
             />
           </div>
         </div>
 
-        <span className="font-mc text-[16px] text-[#cdd6f4]">{tool.label}</span>
-        <p className="text-[12px] leading-relaxed text-[#a6adc8]">{tool.description}</p>
+        <span className="font-mc text-[16px] text-text">{tool.label}</span>
+        <p className="text-[12px] leading-relaxed text-muted">{tool.description}</p>
       </div>
 
-      <div className="flex flex-wrap gap-1 border-t border-line/40 pt-2 font-mono text-[10px] text-[#6c7086]">
+      <div className="flex flex-wrap gap-1 border-t border-line/40 pt-2 font-mono text-[10px] text-dim">
         {tool.tags.slice(0, 3).map((tag) => (
-          <span key={tag} className="bg-black/20 px-1 py-0.5 text-[#6c7086]">
+          <span key={tag} className="bg-black/20 px-1 py-0.5 text-dim">
             #{tag}
           </span>
         ))}

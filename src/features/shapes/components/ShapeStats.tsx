@@ -49,7 +49,7 @@ export function ShapeStatsCard({ stats, mode }: ShapeStatsCardProps) {
           onClick={copyStats}
           title="Copy stats to clipboard"
           data-active={copied}
-          className="mc-icon-btn h-7 rounded-none px-2 text-xs text-[#a6adc8] hover:text-[#cdd6f4]"
+          className="mc-icon-btn h-7 rounded-none px-2 text-xs text-muted hover:text-text"
         >
           {copied ? <Check size={12} className="text-[var(--accent)]" /> : <Copy size={12} />}
           <span className="ml-1 text-[11px]">{copied ? 'Copied' : 'Copy'}</span>
@@ -58,9 +58,9 @@ export function ShapeStatsCard({ stats, mode }: ShapeStatsCardProps) {
     >
       <div className="grid grid-cols-2 gap-3 p-4">
         <div className="flex flex-col">
-          <span className="text-[11px] text-[#6c7086]">Blocks (Layer)</span>
-          <span className="font-mc text-xl text-[#cdd6f4]">{stats.blockCount.toLocaleString()}</span>
-          <span className="font-mono text-[10px] text-[#6c7086]">
+          <span className="text-[11px] text-dim">Blocks (Layer)</span>
+          <span className="font-mc text-xl text-text">{stats.blockCount.toLocaleString()}</span>
+          <span className="font-mono text-[10px] text-dim">
             {stats.layerStacks.stacks > 0
               ? `${stats.layerStacks.stacks} st + ${stats.layerStacks.remainder}`
               : `${stats.layerStacks.remainder} blocks`}
@@ -69,11 +69,11 @@ export function ShapeStatsCard({ stats, mode }: ShapeStatsCardProps) {
 
         {mode === 'sphere' || mode === 'dome' ? (
           <div className="flex flex-col">
-            <span className="text-[11px] text-[#6c7086]">Total Blocks</span>
+            <span className="text-[11px] text-dim">Total Blocks</span>
             <span className="font-mc text-xl text-[var(--accent)]">{stats.totalBlockCount.toLocaleString()}</span>
-            <span className="font-mono text-[10px] text-[#6c7086]">
+            <span className="font-mono text-[10px] text-dim">
               {stats.totalStacks.stacks} st + {stats.totalStacks.remainder}{' '}
-              <span className="text-[#a6adc8]">({stats.totalStacks.shulkers} sb)</span>
+              <span className="text-muted">({stats.totalStacks.shulkers} sb)</span>
             </span>
           </div>
         ) : null}
@@ -81,30 +81,30 @@ export function ShapeStatsCard({ stats, mode }: ShapeStatsCardProps) {
         {mode === 'oval' ? (
           <>
             <div className="flex flex-col">
-              <span className="text-[11px] text-[#6c7086]">Width</span>
-              <span className="font-mc text-sm text-[#cdd6f4]">{stats.width}</span>
+              <span className="text-[11px] text-dim">Width</span>
+              <span className="font-mc text-sm text-text">{stats.width}</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[11px] text-[#6c7086]">Height</span>
-              <span className="font-mc text-sm text-[#cdd6f4]">{stats.height}</span>
+              <span className="text-[11px] text-dim">Height</span>
+              <span className="font-mc text-sm text-text">{stats.height}</span>
             </div>
           </>
         ) : (
           <>
             <div className="flex flex-col">
-              <span className="text-[11px] text-[#6c7086]">Diameter</span>
-              <span className="font-mc text-sm text-[#cdd6f4]">{stats.diameter}</span>
+              <span className="text-[11px] text-dim">Diameter</span>
+              <span className="font-mc text-sm text-text">{stats.diameter}</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[11px] text-[#6c7086]">Radius</span>
-              <span className="font-mc text-sm text-[#cdd6f4]">{stats.radius.toFixed(1)}</span>
+              <span className="text-[11px] text-dim">Radius</span>
+              <span className="font-mc text-sm text-text">{stats.radius.toFixed(1)}</span>
             </div>
           </>
         )}
 
         <div className="flex flex-col">
-          <span className="text-[11px] text-[#6c7086]">Circumference</span>
-          <span className="font-mc text-sm text-[#cdd6f4]">{stats.circumference.toFixed(1)}</span>
+          <span className="text-[11px] text-dim">Circumference</span>
+          <span className="font-mc text-sm text-text">{stats.circumference.toFixed(1)}</span>
         </div>
       </div>
     </Panel>

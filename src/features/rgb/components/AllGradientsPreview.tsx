@@ -13,8 +13,8 @@ export default function AllGradientsPreview({ showSelection }: { showSelection?:
             className={cn(
               'min-w-16 rounded border px-1 py-1 text-center text-[10px]',
               store.gradientType === type
-                ? 'border-white/20 bg-night/80 text-[#cdd6f4]'
-                : 'border-white/10 text-[#6c7086]',
+                ? 'border-white/20 bg-night/80 text-text'
+                : 'border-white/10 text-dim',
             )}
           >
             {type}

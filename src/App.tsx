@@ -36,7 +36,7 @@ const SkinPage = lazy(() =>
 function RouteFallback() {
   return (
     <div className="flex h-full items-center justify-center">
-      <div className="flex items-center gap-2 text-[12px] text-[#6c7086]">
+      <div className="flex items-center gap-2 text-[12px] text-dim">
         <span className="inline-block h-3 w-3 animate-spin rounded-none border-2 border-line border-t-[var(--accent)]" />
         Loading…
       </div>
@@ -45,16 +45,17 @@ function RouteFallback() {
 }
 
 const VIEWPORT_LOCKED_ROUTES = new Set(['/tools/config', '/tools/circle'])
+const SCENE_BACKDROP_ROUTES = new Set(['/', '/tools'])
 
 function App() {
   const location = useLocation()
-  const isHome = location.pathname === '/' || location.pathname === '/tools'
+  const hasSceneBackdrop = SCENE_BACKDROP_ROUTES.has(location.pathname)
   const isViewportLocked = VIEWPORT_LOCKED_ROUTES.has(location.pathname)
   useDocumentTitle(location.pathname)
   return (
     <ThemeProvider>
-      <div className="relative flex h-screen w-screen flex-col text-[#cdd6f4]">
-        {isHome ? <div className="bg-scene" aria-hidden="true" /> : null}
+      <div className="relative flex h-screen w-screen flex-col text-text">
+        {hasSceneBackdrop ? <div className="bg-scene" aria-hidden="true" /> : null}
         <Header />
         <main className="min-h-0 flex-1 overflow-y-auto p-4">
           <Suspense fallback={<RouteFallback />}>

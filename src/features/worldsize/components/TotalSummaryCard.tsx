@@ -39,7 +39,7 @@ export function TotalSummaryCard({ result, shape }: TotalSummaryCardProps) {
   };
 
   return (
-    <div className="flex flex-col gap-4 rounded-none border border-line bg-[#15151f] p-4">
+    <div className="flex flex-col gap-4 rounded-none border border-line bg-surface p-4">
       <div className="flex flex-col items-center justify-center border-b border-line pb-4 text-center">
         <span className="text-xs uppercase tracking-wider text-muted">
           Total Estimated Storage
@@ -129,7 +129,7 @@ export function TotalSummaryCard({ result, shape }: TotalSummaryCardProps) {
         </div>
 
         {showCommands && (
-          <pre className="mt-2 max-h-48 overflow-x-auto rounded-none border border-line/60 bg-[#0d0d17] p-2.5 font-mono text-[11px] text-[#a6adc8]">
+          <pre className="mt-2 max-h-48 overflow-x-auto rounded-none border border-line/60 bg-night p-2.5 font-mono text-[11px] text-muted">
             {allChunkyCommands.join('\n')}
             {'\n\n'}# Vanilla WorldBorder{'\n'}
             {generateWorldBorderCommand(result.dimensions.overworld.radius)}

@@ -187,7 +187,7 @@ export function EditorPane({
       actions={
         <span
           className={`mc-btn rounded-none px-1.5 py-0.5 text-[10px] ${
-            errorCount > 0 ? 'text-[#f38ba8]' : 'text-[var(--accent)]'
+            errorCount > 0 ? 'text-error' : 'text-[var(--accent)]'
           }`}
         >
           {errorCount > 0 ? `${errorCount} issue${errorCount > 1 ? 's' : ''}` : 'valid'}
@@ -215,8 +215,8 @@ export function EditorPane({
               className={cn(
                 'group flex shrink-0 cursor-pointer items-center gap-1 border-r border-b-2 border-line px-3 py-2 text-[12px] transition-colors duration-150',
                 isActive
-                  ? 'border-b-[var(--accent)] text-[#cdd6f4]'
-                  : 'border-b-transparent text-[#6c7086] hover:text-[#a6adc8]',
+                  ? 'border-b-[var(--accent)] text-text'
+                  : 'border-b-transparent text-dim hover:text-muted',
               )}
             >
               {renamingId === file.id ? (
@@ -230,7 +230,7 @@ export function EditorPane({
                     else if (e.key === 'Escape') cancelRename()
                   }}
                   onClick={(e) => e.stopPropagation()}
-                  className="w-24 min-w-0 rounded-sm border border-[var(--accent)] bg-night px-1 py-0.5 text-[12px] text-[#cdd6f4] outline-none"
+                  className="w-24 min-w-0 rounded-sm border border-[var(--accent)] bg-night px-1 py-0.5 text-[12px] text-text outline-none"
                 />
               ) : (
                 <span className="truncate">{file.name}</span>
@@ -243,7 +243,7 @@ export function EditorPane({
                     e.stopPropagation()
                     onRemoveFile(file.id)
                   }}
-                  className="mc-btn rounded-none p-0.5 text-[#6c7086] transition-colors duration-150 hover:text-[#f38ba8]"
+                  className="mc-btn rounded-none p-0.5 text-dim transition-colors duration-150 hover:text-error"
                 >
                   <X size={12} />
                 </button>
@@ -256,7 +256,7 @@ export function EditorPane({
           title="Add config file"
           onClick={onAddFile}
           className={cn(
-            'mc-btn flex h-6 w-6 shrink-0 items-center justify-center rounded-none text-[#6c7086] hover:text-[var(--accent)]',
+            'mc-btn flex h-6 w-6 shrink-0 items-center justify-center rounded-none text-dim hover:text-[var(--accent)]',
             files.length > 0 && 'ml-1',
           )}
         >
@@ -295,14 +295,14 @@ export function EditorPane({
           />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-2.5 px-6 text-center">
-            <p className="text-[13px] text-[#cdd6f4]">No file open.</p>
-            <p className="max-w-[320px] text-[12px] leading-relaxed text-[#6c7086]">
+            <p className="text-[13px] text-text">No file open.</p>
+            <p className="max-w-[320px] text-[12px] leading-relaxed text-dim">
               Add a config file to start, then paste any YAML and watch each MiniMessage render live.
             </p>
             <button
               type="button"
               onClick={onAddFile}
-              className="mc-btn mt-1 flex items-center gap-1.5 rounded-none px-3 py-1.5 text-[12px] text-[#a6adc8] hover:text-[var(--accent)]"
+              className="mc-btn mt-1 flex items-center gap-1.5 rounded-none px-3 py-1.5 text-[12px] text-muted hover:text-[var(--accent)]"
             >
               <FilePlus size={14} />
               New file
@@ -320,7 +320,7 @@ export function EditorPane({
             onPointerUp={onDragEnd}
             title="Drag to resize"
           >
-            <div className="h-0.5 w-12 rounded-full bg-line opacity-60 transition-all duration-150 group-hover:bg-[#585b70] group-hover:opacity-100" />
+            <div className="h-0.5 w-12 rounded-full bg-line opacity-60 transition-all duration-150 group-hover:bg-faint group-hover:opacity-100" />
           </div>
 
           <button
@@ -329,16 +329,16 @@ export function EditorPane({
             aria-expanded={problemsOpen}
             className="group flex h-6 w-full shrink-0 items-center justify-between px-2.5 text-[11px] transition-colors duration-150 hover:bg-hover"
           >
-            <span className="flex items-center gap-1.5 text-[#a6adc8]">
-              <ListX size={12} className="text-[#f38ba8]" />
+            <span className="flex items-center gap-1.5 text-muted">
+              <ListX size={12} className="text-error" />
               Problems
               {errorCount > 0 ? ` · ${errorCount}` : ''}
               {truncated ? ` (showing ${errors.length})` : ''}
             </span>
             {problemsOpen ? (
-              <ChevronDown size={13} className="text-[#6c7086] transition-colors duration-150 group-hover:text-[#cdd6f4]" />
+              <ChevronDown size={13} className="text-dim transition-colors duration-150 group-hover:text-text" />
             ) : (
-              <ChevronUp size={13} className="text-[#6c7086] transition-colors duration-150 group-hover:text-[#cdd6f4]" />
+              <ChevronUp size={13} className="text-dim transition-colors duration-150 group-hover:text-text" />
             )}
           </button>
 
@@ -351,7 +351,7 @@ export function EditorPane({
               <div className="flex flex-col" style={{ height: panelHeight }}>
                 <ul className="min-h-0 flex-1 divide-y divide-line overflow-y-auto">
                   {errors.length === 0 ? (
-                    <li className="px-2.5 py-1.5 text-[11px] text-[#6c7086]">No errors.</li>
+                    <li className="px-2.5 py-1.5 text-[11px] text-dim">No errors.</li>
                   ) : (
                     errors.map((e, i) => (
                       <li key={i}>
@@ -360,11 +360,11 @@ export function EditorPane({
                           onClick={() => handleErrorClick(e)}
                           className="flex w-full items-baseline gap-2 px-2.5 py-1.5 text-left text-[11px] transition-colors duration-150 hover:bg-line/60"
                         >
-                          <span className="shrink-0 font-mono text-[10px] text-[#6c7086]">
+                          <span className="shrink-0 font-mono text-[10px] text-dim">
                             {e.file}
                             {e.line != null ? `:${e.line}` : ''}
                           </span>
-                          <span className="min-w-0 truncate text-[#cdd6f4]">{e.message}</span>
+                          <span className="min-w-0 truncate text-text">{e.message}</span>
                         </button>
                       </li>
                     ))

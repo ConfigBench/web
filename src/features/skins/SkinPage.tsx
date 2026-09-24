@@ -126,7 +126,7 @@ export function SkinPage() {
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-none bg-[var(--accent)]" />
-              <h3 className="font-mc text-sm uppercase tracking-wider text-[#cdd6f4]">
+              <h3 className="font-mc text-sm uppercase tracking-wider text-text">
                 2D & Isometric Variations ({filteredVariations.length})
               </h3>
             </div>

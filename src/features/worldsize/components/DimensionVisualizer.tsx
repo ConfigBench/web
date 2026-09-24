@@ -107,9 +107,9 @@ export function DimensionVisualizer({
 
       <div className="mt-1 flex flex-col items-center">
         <div className="flex items-center gap-1 font-mono text-[11px] font-medium tracking-tight text-text">
-          <span className="text-[#6c7086]">⊢</span>
+          <span className="text-dim">⊢</span>
           <span style={{ color }}>{formatCompactBlocks(displayValue)} blocks</span>
-          <span className="text-[#6c7086]">⊣</span>
+          <span className="text-dim">⊣</span>
         </div>
         <span className="text-[9px] uppercase tracking-wider text-muted">
           {measurement} ({shape})

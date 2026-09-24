@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AlertTriangle, Check, X } from 'lucide-react';
 import { cn } from '../../lib/cn';
+import { motionExitMs } from '../../lib/motion';
 
 export interface ToastItem {
   id: number;
@@ -9,8 +10,6 @@ export interface ToastItem {
   description?: string;
   tone?: 'green' | 'red' | 'orange';
 }
-
-const EXIT_MS = 140;
 
 interface ToastContainerProps {
   toasts: ToastItem[];
@@ -37,7 +36,7 @@ export function ToastContainer({ toasts, onDismiss }: ToastContainerProps) {
         return next;
       });
       onDismiss(id);
-    }, EXIT_MS);
+    }, motionExitMs('toast'));
     timers.current.add(timer);
   };
 
@@ -45,7 +44,7 @@ export function ToastContainer({ toasts, onDismiss }: ToastContainerProps) {
 
   const toneMap = {
     green: { bar: 'bg-[var(--accent)]', icon: Check, iconColor: 'text-[var(--accent)]' },
-    red: { bar: 'bg-[#f38ba8]', icon: AlertTriangle, iconColor: 'text-[#f38ba8]' },
+    red: { bar: 'bg-error', icon: AlertTriangle, iconColor: 'text-error' },
     orange: { bar: 'bg-[var(--accent)]', icon: AlertTriangle, iconColor: 'text-[var(--accent)]' },
   };
 
@@ -67,9 +66,9 @@ export function ToastContainer({ toasts, onDismiss }: ToastContainerProps) {
             <div className="flex items-start gap-2.5 px-3 py-2.5">
               <Icon size={15} className={cn('mt-0.5 shrink-0', toneConfig.iconColor)} />
               <div className="min-w-0 flex-1">
-                <p className="font-mc text-[12px] leading-snug text-[#cdd6f4]">{toast.title}</p>
+                <p className="font-mc text-[12px] leading-snug text-text">{toast.title}</p>
                 {toast.description && (
-                  <p className="mt-1 text-[11px] leading-relaxed text-[#a6adc8]">{toast.description}</p>
+                  <p className="mt-1 text-[11px] leading-relaxed text-muted">{toast.description}</p>
                 )}
               </div>
               <button

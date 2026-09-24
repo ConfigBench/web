@@ -34,11 +34,11 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       return (
         <div className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-3 px-6 text-center">
           <p className="font-mc text-xl text-[var(--accent)]">Something went wrong.</p>
-          <p className="max-w-sm text-[13px] text-[#a6adc8]">Reload the page to try again.</p>
+          <p className="max-w-sm text-[13px] text-muted">Reload the page to try again.</p>
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="mc-btn rounded-none px-3 py-1.5 text-[12px] text-[#a6adc8] hover:text-[var(--accent)]"
+            className="mc-btn rounded-none px-3 py-1.5 text-[12px] text-muted hover:text-[var(--accent)]"
           >
             Reload
           </button>

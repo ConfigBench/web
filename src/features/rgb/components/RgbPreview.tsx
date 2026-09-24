@@ -123,7 +123,7 @@ export default function RgbPreview({ override, shadowLength = 4, showSelection =
   }, [text, colors, colorLength, gradientType, formattingList, baseFormatting, shadowColors, selection, shadowLength, showSelection]);
 
   if (!rendered) {
-    return <span className="text-[#a6adc8]/25 font-mc">ConfigBench</span>;
+    return <span className="text-muted/25 font-mc">ConfigBench</span>;
   }
   return rendered;
 }

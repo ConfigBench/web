@@ -21,7 +21,7 @@ export function Panel({ title, icon: Icon, actions, className, children }: Panel
       {title || actions ? (
         <header className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-line bg-panel px-3">
           {title ? (
-            <h2 className="flex items-center gap-2 text-[13px] font-medium text-[#a6adc8]">
+            <h2 className="flex items-center gap-2 text-[13px] font-medium text-muted">
               {Icon ? (
                 <Icon size={13} className="shrink-0 text-[var(--accent)]" />
               ) : (

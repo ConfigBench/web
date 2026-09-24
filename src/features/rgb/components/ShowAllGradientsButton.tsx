@@ -12,7 +12,7 @@ export default function ShowAllGradientsButton() {
       title={show ? 'Show only selected gradient' : 'Show all gradients'}
       className={cn(
         'mc-icon-btn h-9 w-9 rounded-none p-0',
-        show ? 'text-[var(--accent)]' : 'text-[#a6adc8] hover:text-[#cdd6f4]',
+        show ? 'text-[var(--accent)]' : 'text-muted hover:text-text',
       )}
     >
       <Eye size={17} />

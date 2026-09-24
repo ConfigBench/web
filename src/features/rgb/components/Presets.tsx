@@ -16,7 +16,7 @@ export default function Presets() {
   return (
     <div id="presets" className="flex flex-col gap-3">
       <div className="flex items-center gap-2">
-        <h3 className="flex flex-1 items-center gap-2 text-[15px] font-semibold text-[#cdd6f4]">
+        <h3 className="flex flex-1 items-center gap-2 text-[15px] font-semibold text-text">
           <Save size={17} /> Presets
         </h3>
         <button
@@ -34,7 +34,7 @@ export default function Presets() {
 
       <div className="mc-input max-h-64 overflow-auto rounded-md p-1.5">
         {presets.length === 0 && (
-          <p className="p-2.5 text-center text-xs text-[#6c7086]">
+          <p className="p-2.5 text-center text-xs text-dim">
             No presets saved yet. Configure a gradient and press Save.
           </p>
         )}
@@ -65,7 +65,7 @@ export default function Presets() {
                 type="button"
                 aria-label="Delete preset"
                 onClick={() => deletePreset(i)}
-                className="mr-1.5 rounded-md p-1.5 text-[#a6adc8] transition-colors hover:text-[#f38ba8]"
+                className="mr-1.5 rounded-md p-1.5 text-muted transition-colors hover:text-error"
               >
                 <Trash size={14} />
               </button>
@@ -74,7 +74,7 @@ export default function Presets() {
         })}
       </div>
 
-      <label htmlFor="import" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label htmlFor="import" className="flex flex-col gap-1.5 text-[13px] text-muted">
         <span className="flex items-center gap-1.5">
           <Braces size={13} /> Import
         </span>

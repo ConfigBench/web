@@ -40,7 +40,7 @@ export function DimensionCoordinatePanel({
   };
 
   return (
-    <div className={`flex flex-col gap-4 rounded-none border ${borderClass} bg-[#15151f] p-4 transition-all`}>
+    <div className={`flex flex-col gap-4 rounded-none border ${borderClass} bg-surface p-4 transition-all`}>
       <div className="flex items-center justify-between border-b border-line pb-3">
         <div className="flex items-center gap-2.5">
           <div

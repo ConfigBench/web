@@ -19,7 +19,7 @@ export default function CustomFormat() {
   return (
     <div id="customformat" className="grid grid-cols-2 gap-4">
       <div className="flex flex-col gap-2.5">
-        <label htmlFor="customformat" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+        <label htmlFor="customformat" className="flex flex-col gap-1.5 text-[13px] text-muted">
           Custom Format
           <input
             id="customformat"
@@ -29,7 +29,7 @@ export default function CustomFormat() {
             className="mc-input rounded-none px-2.5 py-1.5 font-mono text-xs"
           />
         </label>
-        <div className="font-mono text-[11px] leading-relaxed text-[#a6adc8]">
+        <div className="font-mono text-[11px] leading-relaxed text-muted">
           <p>Placeholders:</p>
           <p>
             $1 = <strong className="text-red-400">R</strong>RGGBB
@@ -55,7 +55,7 @@ export default function CustomFormat() {
       </div>
       <div className="flex flex-col gap-2.5">
         {format.char !== undefined && !hasWrappers && (
-          <label htmlFor="format-char" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+          <label htmlFor="format-char" className="flex flex-col gap-1.5 text-[13px] text-muted">
             Format Character
             <input
               id="format-char"
@@ -68,7 +68,7 @@ export default function CustomFormat() {
         )}
         {!format.char &&
           FIELDS.map(({ key, label, placeholder }) => (
-            <label key={key} htmlFor={`format-${key}`} className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+            <label key={key} htmlFor={`format-${key}`} className="flex flex-col gap-1.5 text-[13px] text-muted">
               {label}
               <input
                 id={`format-${key}`}
@@ -79,8 +79,8 @@ export default function CustomFormat() {
               />
             </label>
           ))}
-        {!format.char && <p className="font-mono text-[11px] text-[#a6adc8]">$t = Output Text</p>}
-        <label htmlFor="format-newline" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+        {!format.char && <p className="font-mono text-[11px] text-muted">$t = Output Text</p>}
+        <label htmlFor="format-newline" className="flex flex-col gap-1.5 text-[13px] text-muted">
           New Line
           <input
             id="format-newline"

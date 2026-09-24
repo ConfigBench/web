@@ -34,7 +34,7 @@ function ErrorBanner() {
   const { errors } = useRgbStore();
   if (errors.length === 0) return null;
   return (
-    <div className="rounded-none border border-[#f38ba8]/40 bg-[#f38ba8]/10 p-2 text-xs text-[#f38ba8]">
+    <div className="rounded-none border border-error/40 bg-error/10 p-2 text-xs text-error">
       {errors.slice(0, 3).map((error, i) => (
         <p key={i}>Error loading settings: {error}</p>
       ))}
@@ -156,7 +156,7 @@ function OutputDock() {
         value={output}
         onClick={copy}
         title="Click to copy"
-        className="mc-output font-mc h-64 w-full resize-none p-3 text-sm leading-relaxed whitespace-pre-wrap text-[#cdd6f4] outline-none"
+        className="mc-output font-mc h-64 w-full resize-none p-3 text-sm leading-relaxed whitespace-pre-wrap text-text outline-none"
       />
     </Panel>
   );
@@ -206,10 +206,10 @@ function SidePanel({ tab }: { tab: Tab }) {
           <Options />
           {store.customFormat && (
             <div className="flex flex-col gap-3 border-t border-line pt-4">
-              <h4 className="flex items-center gap-2 text-[13px] font-semibold text-[#cdd6f4]">
+              <h4 className="flex items-center gap-2 text-[13px] font-semibold text-text">
                 <Settings size={14} className="text-[var(--accent)]" />
                 Format Options
-                <span className="truncate font-mono text-[11px] font-normal text-[#6c7086]">
+                <span className="truncate font-mono text-[11px] font-normal text-dim">
                   {renderFormatPreviewLabel(store.colorFormat, store.baseFormatting, store)}
                 </span>
               </h4>

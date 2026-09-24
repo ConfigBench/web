@@ -5,7 +5,7 @@ import { fetchServerStatus } from './engine/fetcher';
 import { Panel } from '../../shared/components/ui/Panel';
 import { StatusQueryForm } from './components/StatusQueryForm';
 import { ServerCard } from './components/ServerCard';
-import { StatusToasts, type ToastItem } from './components/StatusToasts';
+import { ToastContainer, type ToastItem } from '../../shared/components/ui/ToastContainer';
 
 const DEFAULT_CONFIG: StatusQueryConfig = {
   address: '',
@@ -134,7 +134,7 @@ export function StatusPage() {
         />
       )}
 
-      <StatusToasts toasts={toasts} onDismiss={dismissToast} />
+      <ToastContainer toasts={toasts} onDismiss={dismissToast} />
     </div>
   );
 }

@@ -54,29 +54,29 @@ export function RenderedList({ entries, previews, activeId, errorCount = 0, onSe
   return (
     <div className="flex h-full flex-col" data-rendered-list>
       <div className="flex shrink-0 items-center gap-1.5 border-b border-line px-2 py-1.5">
-        <Search size={13} className="shrink-0 text-[#6c7086]" />
+        <Search size={13} className="shrink-0 text-dim" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Filter messages…"
-          className="min-w-0 flex-1 bg-transparent text-[12px] text-[#cdd6f4] outline-none placeholder:text-[#6c7086]"
+          className="min-w-0 flex-1 bg-transparent text-[12px] text-text outline-none placeholder:text-dim"
         />
         {query ? (
           <button
             type="button"
             aria-label="Clear"
             onClick={() => setQuery('')}
-            className="rounded-sm p-0.5 text-[#6c7086] transition-colors hover:text-[#cdd6f4]"
+            className="rounded-sm p-0.5 text-dim transition-colors hover:text-text"
           >
             <X size={13} />
           </button>
         ) : null}
-        <span className="shrink-0 text-[10px] text-[#585b70]">{filtered.length}</span>
+        <span className="shrink-0 text-[10px] text-faint">{filtered.length}</span>
       </div>
 
       <div className="mc-chat min-h-0 flex-1 overflow-y-auto">
         {filtered.length === 0 ? (
-          <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center text-[13px] text-[#6c7086]">
+          <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center text-[13px] text-dim">
             {query
               ? 'No messages match that filter.'
               : errorCount > 0
@@ -101,11 +101,11 @@ export function RenderedList({ entries, previews, activeId, errorCount = 0, onSe
                         : 'border-l-2 border-l-transparent hover:bg-hover',
                     )}
                   >
-                    <div className="font-mc text-[15px] leading-normal text-[#cdd6f4]">
-                      {resolved ? <RichText components={resolved} /> : <span className="text-[#6c7086]">{entry.source}</span>}
+                    <div className="font-mc text-[15px] leading-normal text-text">
+                      {resolved ? <RichText components={resolved} /> : <span className="text-dim">{entry.source}</span>}
                     </div>
                     <div
-                      className="mt-0.5 truncate text-[10px] text-[#585b70]"
+                      className="mt-0.5 truncate text-[10px] text-faint"
                       dangerouslySetInnerHTML={{ __html: highlightMatch(entry.path, query.trim()) }}
                     />
                   </button>

@@ -98,7 +98,7 @@ export function ShapeControls({
                   })
                 }
                 data-active={isActive}
-                className="mc-btn flex flex-col items-center justify-center gap-1.5 rounded-none px-2 py-3 text-xs transition-colors hover:text-[#cdd6f4] data-[active='true']:border-[var(--accent)] data-[active='true']:text-[var(--accent)] data-[active='true']:shadow-[0_0_8px_color-mix(in_srgb,var(--accent)_25%,transparent)]"
+                className="mc-btn flex flex-col items-center justify-center gap-1.5 rounded-none px-2 py-3 text-xs transition-colors hover:text-text data-[active='true']:border-[var(--accent)] data-[active='true']:text-[var(--accent)] data-[active='true']:shadow-[0_0_8px_color-mix(in_srgb,var(--accent)_25%,transparent)]"
               >
                 <Icon className="h-4 w-4" />
                 <span className="font-mc text-[12px]">{label}</span>
@@ -109,12 +109,12 @@ export function ShapeControls({
       </Panel>
 
       <Panel title="Configuration">
-        <div className="flex flex-col gap-4 p-4 text-xs text-[#a6adc8]">
+        <div className="flex flex-col gap-4 p-4 text-xs text-muted">
           {mode === 'oval' ? (
             <>
               <div className="flex flex-col gap-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-[#cdd6f4]">Width</span>
+                  <span className="font-medium text-text">Width</span>
                   <NumberInput
                     min={1}
                     max={256}
@@ -135,7 +135,7 @@ export function ShapeControls({
 
               <div className="flex flex-col gap-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-[#cdd6f4]">Height</span>
+                  <span className="font-medium text-text">Height</span>
                   <NumberInput
                     min={1}
                     max={256}
@@ -157,7 +157,7 @@ export function ShapeControls({
           ) : (
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
-                <span className="font-medium text-[#cdd6f4]">Diameter</span>
+                <span className="font-medium text-text">Diameter</span>
                 <NumberInput
                   min={1}
                   max={256}
@@ -186,11 +186,11 @@ export function ShapeControls({
                     disabled={layer <= 0}
                     onClick={() => handleDimensionChange({ layer: Math.max(0, layer - 1) })}
                     title="Previous layer (ArrowDown / [)"
-                    className="mc-icon-btn h-6 w-6 rounded-none p-0 text-[#cdd6f4]"
+                    className="mc-icon-btn h-6 w-6 rounded-none p-0 text-text"
                   >
                     <ChevronLeft size={13} />
                   </button>
-                  <span className="font-medium text-[#cdd6f4]">
+                  <span className="font-medium text-text">
                     Layer {layer + 1} / {totalLayers}
                   </span>
                   <button
@@ -198,12 +198,12 @@ export function ShapeControls({
                     disabled={layer >= totalLayers - 1}
                     onClick={() => handleDimensionChange({ layer: Math.min(totalLayers - 1, layer + 1) })}
                     title="Next layer (ArrowUp / ])"
-                    className="mc-icon-btn h-6 w-6 rounded-none p-0 text-[#cdd6f4]"
+                    className="mc-icon-btn h-6 w-6 rounded-none p-0 text-text"
                   >
                     <ChevronRight size={13} />
                   </button>
                 </div>
-                <span className="font-mono text-[11px] text-[#6c7086]">Y={layer}</span>
+                <span className="font-mono text-[11px] text-dim">Y={layer}</span>
               </div>
               <input
                 type="range"
@@ -215,7 +215,7 @@ export function ShapeControls({
               />
 
               <label className="mt-1 flex cursor-pointer items-center justify-between text-xs">
-                <span className="text-[#a6adc8]">Show Layer Below (Ghost)</span>
+                <span className="text-muted">Show Layer Below (Ghost)</span>
                 <input
                   type="checkbox"
                   checked={ghostPreviousLayer}
@@ -227,7 +227,7 @@ export function ShapeControls({
 
           <div className="flex flex-col gap-3 border-t border-line/60 pt-3">
             <label className="flex cursor-pointer items-center justify-between">
-              <span className="text-[#cdd6f4]">Filled</span>
+              <span className="text-text">Filled</span>
               <input
                 type="checkbox"
                 checked={filled}
@@ -236,7 +236,7 @@ export function ShapeControls({
             </label>
 
             <label className="flex cursor-pointer items-center justify-between">
-              <span className="text-[#cdd6f4]">Grid Lines</span>
+              <span className="text-text">Grid Lines</span>
               <input
                 type="checkbox"
                 checked={showGrid}
@@ -246,8 +246,8 @@ export function ShapeControls({
 
             <div className="flex flex-col gap-1.5 pt-1">
               <div className="flex items-center justify-between">
-                <span className="text-[#cdd6f4]">Zoom</span>
-                <span className="font-mono text-[11px] text-[#6c7086]">{Math.round(zoom * 100)}%</span>
+                <span className="text-text">Zoom</span>
+                <span className="font-mono text-[11px] text-dim">{Math.round(zoom * 100)}%</span>
               </div>
               <input
                 type="range"
@@ -264,9 +264,9 @@ export function ShapeControls({
       </Panel>
 
       <Panel title="World Anchor (F3)" icon={Compass}>
-        <div className="flex flex-col gap-3 p-4 text-xs text-[#a6adc8]">
+        <div className="flex flex-col gap-3 p-4 text-xs text-muted">
           <label className="flex cursor-pointer items-center justify-between">
-            <span className="text-[#cdd6f4]">Show World Coordinates</span>
+            <span className="text-text">Show World Coordinates</span>
             <input
               type="checkbox"
               checked={anchor.enabled}
@@ -276,12 +276,12 @@ export function ShapeControls({
 
           {anchor.enabled ? (
             <div className="flex flex-col gap-3 border-t border-line/60 pt-2">
-              <span className="text-[11px] leading-snug text-[#6c7086]">
+              <span className="text-[11px] leading-snug text-dim">
                 Pick the reference block on the blueprint and enter its in-game F3 coordinate.
               </span>
 
               <div className="flex flex-col gap-1.5">
-                <span className="text-[11px] font-medium text-[#cdd6f4]">Anchor Block Location:</span>
+                <span className="text-[11px] font-medium text-text">Anchor Block Location:</span>
                 <div className="grid grid-cols-3 gap-1">
                   {ANCHOR_PRESETS.map(({ preset: p, label }) => (
                     <button
@@ -289,7 +289,7 @@ export function ShapeControls({
                       type="button"
                       onClick={() => onChange({ anchor: { ...anchor, preset: p, layer } })}
                       data-active={anchor.preset === p}
-                      className="mc-btn rounded-none px-1.5 py-1 text-[10px] text-[#a6adc8] hover:text-[#cdd6f4] data-[active='true']:border-[var(--accent)] data-[active='true']:text-[var(--accent)]"
+                      className="mc-btn rounded-none px-1.5 py-1 text-[10px] text-muted hover:text-text data-[active='true']:border-[var(--accent)] data-[active='true']:text-[var(--accent)]"
                     >
                       {label}
                     </button>
@@ -298,7 +298,7 @@ export function ShapeControls({
                     type="button"
                     onClick={onTogglePickAnchor}
                     data-active={isPickingAnchor || anchor.preset === 'custom'}
-                    className="mc-btn flex items-center justify-center gap-1 rounded-none px-1.5 py-1 text-[10px] text-[#a6adc8] hover:text-[#cdd6f4] data-[active='true']:border-[var(--accent)] data-[active='true']:text-[var(--accent)]"
+                    className="mc-btn flex items-center justify-center gap-1 rounded-none px-1.5 py-1 text-[10px] text-muted hover:text-text data-[active='true']:border-[var(--accent)] data-[active='true']:text-[var(--accent)]"
                   >
                     <Crosshair size={11} className={isPickingAnchor ? 'animate-spin text-[var(--accent)]' : ''} />
                     {isPickingAnchor ? 'Click Block...' : 'Pick on Canvas'}
@@ -307,8 +307,8 @@ export function ShapeControls({
 
                 {(mode === 'sphere' || mode === 'dome') ? (
                   <div className="mt-1 flex items-center justify-between text-[11px]">
-                    <span className="text-[#6c7086]">
-                      Anchor sits on <strong className="text-[#cdd6f4]">Layer {anchor.layer + 1}</strong>
+                    <span className="text-dim">
+                      Anchor sits on <strong className="text-text">Layer {anchor.layer + 1}</strong>
                     </span>
                     {anchor.layer !== layer ? (
                       <button
@@ -324,10 +324,10 @@ export function ShapeControls({
               </div>
 
               <div className="flex flex-col gap-1.5 pt-1">
-                <span className="text-[11px] font-medium text-[#cdd6f4]">In-Game Coordinate for Anchor:</span>
+                <span className="text-[11px] font-medium text-text">In-Game Coordinate for Anchor:</span>
                 <div className="grid grid-cols-3 gap-2">
                   <label className="flex flex-col gap-1">
-                    <span className="font-mono text-[10px] text-[#6c7086]">X</span>
+                    <span className="font-mono text-[10px] text-dim">X</span>
                     <NumberInput
                       value={anchor.x}
                       allowNegative
@@ -336,7 +336,7 @@ export function ShapeControls({
                     />
                   </label>
                   <label className="flex flex-col gap-1">
-                    <span className="font-mono text-[10px] text-[#6c7086]">Y</span>
+                    <span className="font-mono text-[10px] text-dim">Y</span>
                     <NumberInput
                       value={anchor.y}
                       allowNegative
@@ -345,7 +345,7 @@ export function ShapeControls({
                     />
                   </label>
                   <label className="flex flex-col gap-1">
-                    <span className="font-mono text-[10px] text-[#6c7086]">Z</span>
+                    <span className="font-mono text-[10px] text-dim">Z</span>
                     <NumberInput
                       value={anchor.z}
                       allowNegative

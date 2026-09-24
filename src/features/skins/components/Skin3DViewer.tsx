@@ -163,11 +163,11 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
   };
 
   return (
-    <div className="flex flex-col justify-between rounded-none border border-line bg-[#15151f] p-4">
+    <div className="flex flex-col justify-between rounded-none border border-line bg-surface p-4">
       <div className="flex items-center justify-between border-b border-line pb-3">
         <div className="flex items-center gap-2">
           <Sparkles size={16} className="text-[var(--accent)]" />
-          <span className="font-mc text-sm text-[#cdd6f4]">Interactive 3D Character Model</span>
+          <span className="font-mc text-sm text-text">Interactive 3D Character Model</span>
         </div>
       </div>
 
@@ -177,7 +177,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
       >
         <canvas ref={canvasRef} className="h-full w-full touch-none cursor-grab active:cursor-grabbing" />
 
-        <div className="pointer-events-none absolute bottom-2 left-2 flex items-center gap-1.5 font-mono text-[10px] text-[#6c7086]">
+        <div className="pointer-events-none absolute bottom-2 left-2 flex items-center gap-1.5 font-mono text-[10px] text-dim">
           <Compass size={11} />
           <span>Drag to rotate · Scroll to zoom</span>
         </div>
@@ -186,7 +186,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
       <div className="flex flex-col gap-2.5 border-t border-line/60 pt-3 text-xs">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex flex-wrap items-center gap-1">
-            <span className="mr-1 flex items-center gap-1 text-[11px] uppercase text-[#6c7086]">
+            <span className="mr-1 flex items-center gap-1 text-[11px] uppercase text-dim">
               <Camera size={11} />
               Angle:
             </span>
@@ -197,7 +197,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
                 onClick={() => applyCameraAngle(angle)}
                 data-active={activeAngle === angle}
                 className={cn(
-                  'mc-btn px-2 py-1 capitalize text-[#a6adc8] hover:text-[#cdd6f4]',
+                  'mc-btn px-2 py-1 capitalize text-muted hover:text-text',
                   activeAngle === angle && '!border-[var(--accent)] !text-[var(--accent)]',
                 )}
               >
@@ -207,7 +207,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
             <button
               type="button"
               onClick={handleResetPose}
-              className="mc-icon-btn h-7 w-7 rounded-none p-0 text-[#6c7086] hover:text-[#cdd6f4]"
+              className="mc-icon-btn h-7 w-7 rounded-none p-0 text-dim hover:text-text"
               title="Reset angle & walk animation"
             >
               <RotateCcw size={12} />
@@ -215,13 +215,13 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
           </div>
 
           <div className="flex items-center gap-1">
-            <span className="mr-1 text-[11px] uppercase text-[#6c7086]">Arms:</span>
+            <span className="mr-1 text-[11px] uppercase text-dim">Arms:</span>
             <button
               type="button"
               onClick={() => setModel('default')}
               data-active={model === 'default'}
               className={cn(
-                'mc-btn px-2 py-1 text-[11px] text-[#a6adc8] hover:text-[#cdd6f4]',
+                'mc-btn px-2 py-1 text-[11px] text-muted hover:text-text',
                 model === 'default' && '!border-[var(--accent)] !text-[var(--accent)]',
               )}
             >
@@ -232,7 +232,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
               onClick={() => setModel('slim')}
               data-active={model === 'slim'}
               className={cn(
-                'mc-btn px-2 py-1 text-[11px] text-[#a6adc8] hover:text-[#cdd6f4]',
+                'mc-btn px-2 py-1 text-[11px] text-muted hover:text-text',
                 model === 'slim' && '!border-[var(--accent)] !text-[var(--accent)]',
               )}
             >
@@ -243,7 +243,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
 
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line/40 pt-2">
           <div className="flex flex-wrap items-center gap-1">
-            <span className="mr-1 flex items-center gap-1 text-[11px] uppercase text-[#6c7086]">
+            <span className="mr-1 flex items-center gap-1 text-[11px] uppercase text-dim">
               <Play size={11} />
               Pose:
             </span>
@@ -261,7 +261,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
                 onClick={() => setAnimation(key as AnimationMode)}
                 data-active={animation === key}
                 className={cn(
-                  'mc-btn px-2 py-1 text-[11px] text-[#a6adc8] hover:text-[#cdd6f4]',
+                  'mc-btn px-2 py-1 text-[11px] text-muted hover:text-text',
                   animation === key && '!border-[var(--accent)] !text-[var(--accent)]',
                 )}
               >
@@ -276,7 +276,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
               onClick={() => setShowOverlay((v) => !v)}
               data-active={showOverlay}
               className={cn(
-                'mc-btn flex items-center gap-1 rounded-none px-2 py-1 text-[11px] text-[#a6adc8] hover:text-[#cdd6f4]',
+                'mc-btn flex items-center gap-1 rounded-none px-2 py-1 text-[11px] text-muted hover:text-text',
                 showOverlay && '!border-[var(--accent)] !text-[var(--accent)]',
               )}
             >
@@ -289,7 +289,7 @@ export function Skin3DViewer({ target }: Skin3DViewerProps) {
               onClick={() => setShowNameTag((v) => !v)}
               data-active={showNameTag}
               className={cn(
-                'mc-btn flex items-center gap-1 rounded-none px-2 py-1 text-[11px] text-[#a6adc8] hover:text-[#cdd6f4]',
+                'mc-btn flex items-center gap-1 rounded-none px-2 py-1 text-[11px] text-muted hover:text-text',
                 showNameTag && '!border-[var(--accent)] !text-[var(--accent)]',
               )}
             >

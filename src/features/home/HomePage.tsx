@@ -18,7 +18,7 @@ export function HomePage() {
 
         <div className="page-enter relative mt-5 max-w-2xl" style={{ animationDelay: '60ms' }}>
           <h1 className="font-mc text-4xl leading-none text-[var(--accent)] sm:text-5xl">ConfigBench</h1>
-          <p className="font-mc mt-4 text-[15px] leading-relaxed text-[#a6adc8] sm:text-[16px]">
+          <p className="font-mc mt-4 text-[15px] leading-relaxed text-muted sm:text-[16px]">
             The modern browser workbench for Minecraft players, creators, and server owners.
           </p>
         </div>
@@ -33,7 +33,7 @@ export function HomePage() {
           </Link>
           <Link
             to="/tools/config"
-            className="mc-btn flex items-center gap-2 rounded-none px-5 py-2.5 text-[13px] text-[#cdd6f4] transition-colors hover:text-[var(--accent)]"
+            className="mc-btn flex items-center gap-2 rounded-none px-5 py-2.5 text-[13px] text-text transition-colors hover:text-[var(--accent)]"
           >
             <FileCode2 size={15} className="text-[var(--accent)]" />
             <span>Open Config Editor</span>
@@ -50,14 +50,14 @@ export function HomePage() {
               <span className="mc-icon-btn h-10 w-10 rounded-none text-[var(--accent)] transition-colors group-hover:border-[var(--accent)]">
                 <FileCode2 size={19} />
               </span>
-              <span className="font-mono text-[10px] text-[#6c7086] uppercase transition-colors group-hover:text-[var(--accent)]">
+              <span className="font-mono text-[10px] text-dim uppercase transition-colors group-hover:text-[var(--accent)]">
                 {serverTools.length} Tools →
               </span>
             </div>
-            <h2 className="font-mc text-[17px] text-[#cdd6f4] transition-colors group-hover:text-[var(--accent)]">
+            <h2 className="font-mc text-[17px] text-text transition-colors group-hover:text-[var(--accent)]">
               Server & Config
             </h2>
-            <p className="text-[12px] leading-relaxed text-[#a6adc8]">
+            <p className="text-[12px] leading-relaxed text-muted">
               Live in-game MiniMessage YAML previews, world pregeneration calculators, and multi-provider server status diagnostics.
             </p>
           </Link>
@@ -67,7 +67,7 @@ export function HomePage() {
               <Link
                 key={tool.to}
                 to={tool.to}
-                className="flex items-center justify-between text-xs text-[#a6adc8] transition-colors hover:text-[var(--accent)]"
+                className="flex items-center justify-between text-xs text-muted transition-colors hover:text-[var(--accent)]"
               >
                 <span>{tool.label}</span>
                 <ArrowRight size={11} className="opacity-60" />
@@ -85,14 +85,14 @@ export function HomePage() {
               <span className="mc-icon-btn h-10 w-10 rounded-none text-[var(--accent)] transition-colors group-hover:border-[var(--accent)]">
                 <Palette size={19} />
               </span>
-              <span className="font-mono text-[10px] text-[#6c7086] uppercase transition-colors group-hover:text-[var(--accent)]">
+              <span className="font-mono text-[10px] text-dim uppercase transition-colors group-hover:text-[var(--accent)]">
                 {textTools.length} Tools →
               </span>
             </div>
-            <h2 className="font-mc text-[17px] text-[#cdd6f4] transition-colors group-hover:text-[var(--accent)]">
+            <h2 className="font-mc text-[17px] text-text transition-colors group-hover:text-[var(--accent)]">
               Text & Formatting
             </h2>
-            <p className="text-[12px] leading-relaxed text-[#a6adc8]">
+            <p className="text-[12px] leading-relaxed text-muted">
               Hex color gradients with 6 blending color spaces, legacy decoders, 27 Unicode fonts, and animated TAB YAML generators.
             </p>
           </Link>
@@ -102,7 +102,7 @@ export function HomePage() {
               <Link
                 key={tool.to}
                 to={tool.to}
-                className="flex items-center justify-between text-xs text-[#a6adc8] transition-colors hover:text-[var(--accent)]"
+                className="flex items-center justify-between text-xs text-muted transition-colors hover:text-[var(--accent)]"
               >
                 <span>{tool.label}</span>
                 <ArrowRight size={11} className="opacity-60" />
@@ -120,14 +120,14 @@ export function HomePage() {
               <span className="mc-icon-btn h-10 w-10 rounded-none text-[var(--accent)] transition-colors group-hover:border-[var(--accent)]">
                 <Compass size={19} />
               </span>
-              <span className="font-mono text-[10px] text-[#6c7086] uppercase transition-colors group-hover:text-[var(--accent)]">
+              <span className="font-mono text-[10px] text-dim uppercase transition-colors group-hover:text-[var(--accent)]">
                 {worldTools.length} Tools →
               </span>
             </div>
-            <h2 className="font-mc text-[17px] text-[#cdd6f4] transition-colors group-hover:text-[var(--accent)]">
+            <h2 className="font-mc text-[17px] text-text transition-colors group-hover:text-[var(--accent)]">
               World & Building
             </h2>
-            <p className="text-[12px] leading-relaxed text-[#a6adc8]">
+            <p className="text-[12px] leading-relaxed text-muted">
               Pixel-perfect voxel circle, oval, dome, and sphere blueprints with layer guides and synchronized 8:1 Nether portal converters.
             </p>
           </Link>
@@ -137,7 +137,7 @@ export function HomePage() {
               <Link
                 key={tool.to}
                 to={tool.to}
-                className="flex items-center justify-between text-xs text-[#a6adc8] transition-colors hover:text-[var(--accent)]"
+                className="flex items-center justify-between text-xs text-muted transition-colors hover:text-[var(--accent)]"
               >
                 <span>{tool.label}</span>
                 <ArrowRight size={11} className="opacity-60" />
@@ -155,14 +155,14 @@ export function HomePage() {
               <span className="mc-icon-btn h-10 w-10 rounded-none text-[var(--accent)] transition-colors group-hover:border-[var(--accent)]">
                 <Shirt size={19} />
               </span>
-              <span className="font-mono text-[10px] text-[#6c7086] uppercase transition-colors group-hover:text-[var(--accent)]">
+              <span className="font-mono text-[10px] text-dim uppercase transition-colors group-hover:text-[var(--accent)]">
                 {playerTools.length} Tools →
               </span>
             </div>
-            <h2 className="font-mc text-[17px] text-[#cdd6f4] transition-colors group-hover:text-[var(--accent)]">
+            <h2 className="font-mc text-[17px] text-text transition-colors group-hover:text-[var(--accent)]">
               Player & Cosmetics
             </h2>
-            <p className="text-[12px] leading-relaxed text-[#a6adc8]">
+            <p className="text-[12px] leading-relaxed text-muted">
               Interactive 3D WebGL character models, walking animations, armor layer variations, and raw texture sheets.
             </p>
           </Link>
@@ -172,7 +172,7 @@ export function HomePage() {
               <Link
                 key={tool.to}
                 to={tool.to}
-                className="flex items-center justify-between text-xs text-[#a6adc8] transition-colors hover:text-[var(--accent)]"
+                className="flex items-center justify-between text-xs text-muted transition-colors hover:text-[var(--accent)]"
               >
                 <span>{tool.label}</span>
                 <ArrowRight size={11} className="opacity-60" />
@@ -182,7 +182,7 @@ export function HomePage() {
         </div>
       </div>
 
-      <div className="page-enter relative mt-6 flex items-center gap-2 font-mono text-[11px] text-[#6c7086] sm:mt-8" style={{ animationDelay: '240ms' }}>
+      <div className="page-enter relative mt-6 flex items-center gap-2 font-mono text-[11px] text-dim sm:mt-8" style={{ animationDelay: '240ms' }}>
         <ShieldCheck size={14} className="text-[var(--accent)]" />
         <span>100% Client-Side · Runs entirely in your browser</span>
       </div>

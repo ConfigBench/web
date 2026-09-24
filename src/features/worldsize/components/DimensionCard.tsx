@@ -65,7 +65,7 @@ export function DimensionCard({ stats, shape, measurement }: DimensionCardProps)
 
   return (
     <div
-      className={`flex flex-col rounded-none border ${info.borderTone} bg-[#15151f] p-4 transition-colors`}
+      className={`flex flex-col rounded-none border ${info.borderTone} bg-surface p-4 transition-colors`}
     >
       <div className="flex items-center justify-between border-b border-line pb-3">
         <div className="flex items-center gap-2">

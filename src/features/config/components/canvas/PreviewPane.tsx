@@ -37,7 +37,7 @@ export function PreviewPane({
       title="Rendered"
       icon={MessageSquare}
       actions={
-        <span className="truncate font-mono text-[10px] text-[#6c7086]">
+        <span className="truncate font-mono text-[10px] text-dim">
           {activeFileName}
           {fileEntries.length > 0 ? ` · ${fileEntries.length} msg` : ''}
         </span>

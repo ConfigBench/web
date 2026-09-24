@@ -19,7 +19,7 @@ export function WorldSizeOptions({ config, onChange }: WorldSizeOptionsProps) {
   const supportsPoi = currentVersionNum >= 1.14;
 
   return (
-    <div className="flex flex-col gap-4 rounded-none border border-line bg-[#15151f] p-4">
+    <div className="flex flex-col gap-4 rounded-none border border-line bg-surface p-4">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="mc-version-select" className="text-[11px] uppercase tracking-wider text-muted">

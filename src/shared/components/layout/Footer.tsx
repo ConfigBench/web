@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Bug, Heart, Info, Mail, ShieldCheck, Star, X } from 'lucide-react'
 import { ThemePicker } from './ThemePicker'
+import { motionExitMs } from '../../lib/motion'
 
 const PROJECT_URLS = {
   github: 'https://github.com/ConfigBench/web',
@@ -19,8 +20,6 @@ const SUPPORT_LINKS = [
 
 const DISCLAIMER = 'Not affiliated with Adventure (Kyori), PaperMC, or Mojang.'
 
-const EXIT_MS = 140
-
 export function Footer() {
   const [aboutOpen, setAboutOpen] = useState(false)
   const [aboutMounted, setAboutMounted] = useState(false)
@@ -35,7 +34,7 @@ export function Footer() {
   const closeAbout = useCallback(() => {
     setAboutOpen(false)
     window.clearTimeout(exitTimer.current)
-    exitTimer.current = window.setTimeout(() => setAboutMounted(false), EXIT_MS)
+    exitTimer.current = window.setTimeout(() => setAboutMounted(false), motionExitMs('modal'))
   }, [])
 
   useEffect(() => () => window.clearTimeout(exitTimer.current), [])
@@ -44,20 +43,20 @@ export function Footer() {
     <>
       <footer className="flex h-auto shrink-0 flex-col gap-1.5 border-t border-line bg-surface/40 px-4 py-2.5 backdrop-blur-lg sm:flex-row sm:items-center sm:justify-between">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <p className="min-w-0 text-[11px] leading-snug text-[#6c7086]">
+          <p className="min-w-0 text-[11px] leading-snug text-dim">
             ConfigBench is a product of{' '}
             <a
               href="https://softgrid.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#a6adc8] transition-colors duration-150 hover:text-[var(--accent)]"
+              className="text-muted transition-colors duration-150 hover:text-[var(--accent)]"
             >
               SoftGrid
             </a>
             . © 2026 SoftGrid.
           </p>
           <span className="hidden h-3 w-px bg-line sm:block" />
-          <p className="min-w-0 text-[11px] leading-snug text-[#6c7086]">{DISCLAIMER}</p>
+          <p className="min-w-0 text-[11px] leading-snug text-dim">{DISCLAIMER}</p>
         </div>
 
         <div className="flex shrink-0 items-center gap-1">
@@ -67,7 +66,7 @@ export function Footer() {
               href={link.href}
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
-              className="mc-btn flex items-center gap-1.5 rounded-none px-2.5 py-1.5 text-xs text-[#a6adc8] hover:text-[var(--accent)]"
+              className="mc-btn flex items-center gap-1.5 rounded-none px-2.5 py-1.5 text-xs text-muted hover:text-[var(--accent)]"
             >
               <link.icon size={13} />
               <span className="hidden md:inline">{link.label}</span>
@@ -76,7 +75,7 @@ export function Footer() {
           <button
             type="button"
             onClick={openAbout}
-            className="mc-btn flex items-center gap-1.5 rounded-none px-2.5 py-1.5 text-xs text-[#a6adc8] hover:text-[var(--accent)]"
+            className="mc-btn flex items-center gap-1.5 rounded-none px-2.5 py-1.5 text-xs text-muted hover:text-[var(--accent)]"
           >
             <Info size={13} />
             <span className="hidden md:inline">About</span>
@@ -149,29 +148,29 @@ function AboutModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
       >
         <header className="flex items-center justify-between border-b border-line bg-panel px-4 py-3">
-          <h2 className="font-mc text-[15px] text-[#cdd6f4]">About ConfigBench</h2>
+          <h2 className="font-mc text-[15px] text-text">About ConfigBench</h2>
           <button type="button" aria-label="Close" onClick={onClose} className="mc-icon-btn h-7 w-7 rounded-none p-0">
             <X size={14} />
           </button>
         </header>
 
-        <div className="space-y-3 px-4 py-4 text-[13px] leading-relaxed text-[#a6adc8]">
+        <div className="space-y-3 px-4 py-4 text-[13px] leading-relaxed text-muted">
           <p className="flex items-start gap-2.5">
             <ShieldCheck size={16} className="mt-0.5 shrink-0 text-[var(--accent)]" />
             <span>
-              <span className="font-semibold text-[#cdd6f4]">ConfigBench</span> is the modern browser workbench for
+              <span className="font-semibold text-text">ConfigBench</span> is the modern browser workbench for
               Minecraft players, creators, and server owners — fast, free, and client-side. Everything runs in your
               browser; nothing is uploaded.
             </span>
           </p>
 
-          <p className="text-[12px] text-[#6c7086]">{DISCLAIMER}</p>
+          <p className="text-[12px] text-dim">{DISCLAIMER}</p>
 
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             className="flex items-center gap-2.5 transition-colors duration-150 hover:text-[var(--accent)]"
           >
-            <Mail size={15} className="shrink-0 text-[#6c7086]" />
+            <Mail size={15} className="shrink-0 text-dim" />
             <span className="min-w-0 truncate text-[12px]">{CONTACT_EMAIL}</span>
           </a>
 
@@ -180,14 +179,14 @@ function AboutModal({ open, onClose }: { open: boolean; onClose: () => void }) {
               href={PROJECT_URLS.license}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-[#6c7086] transition-colors duration-150 hover:text-[var(--accent)]"
+              className="text-[11px] text-dim transition-colors duration-150 hover:text-[var(--accent)]"
             >
               AGPL-3.0 License
             </a>
             <button
               type="button"
               onClick={onClose}
-              className="mc-btn rounded-none px-3 py-1.5 text-[12px] text-[#a6adc8] hover:text-[var(--accent)]"
+              className="mc-btn rounded-none px-3 py-1.5 text-[12px] text-muted hover:text-[var(--accent)]"
             >
               Got it
             </button>

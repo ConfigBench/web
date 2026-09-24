@@ -73,7 +73,7 @@ export function DimensionSlider({
   };
 
   return (
-    <div className="flex flex-col gap-2 rounded-none border border-line bg-[#15151f] p-3">
+    <div className="flex flex-col gap-2 rounded-none border border-line bg-surface p-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Icon size={16} style={{ color: meta.accentColor }} />
@@ -101,7 +101,7 @@ export function DimensionSlider({
           step={dimension === 'nether' ? 250 : 500}
           value={displayVal}
           onChange={handleSliderChange}
-          className={`h-2 w-full cursor-pointer appearance-none rounded-none bg-[#232333] ${meta.trackColor}`}
+          className={`h-2 w-full cursor-pointer appearance-none rounded-none bg-hover ${meta.trackColor}`}
           aria-label={`${meta.name} range slider`}
         />
       </div>

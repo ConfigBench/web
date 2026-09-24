@@ -48,7 +48,7 @@ export function ServerCard({ status, onCopy }: ServerCardProps) {
       : 0;
 
   return (
-    <div className="flex flex-col gap-4 rounded-none border border-line bg-[#15151f] p-4">
+    <div className="flex flex-col gap-4 rounded-none border border-line bg-surface p-4">
       <div className="flex flex-col gap-2 rounded-none border border-line/90 bg-[#090910] p-3 shadow-inner max-w-3xl w-full mx-auto">
         <div className="flex items-start gap-3.5">
           <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-none border border-line/60 bg-[#12121d]">
@@ -72,7 +72,7 @@ export function ServerCard({ status, onCopy }: ServerCardProps) {
           </div>
 
           <div className="flex flex-col items-end gap-1 shrink-0 pl-2">
-            <div className="flex items-center gap-1.5 font-mc text-xs text-[#a6adc8]">
+            <div className="flex items-center gap-1.5 font-mc text-xs text-muted">
               <span>
                 {status.players.online.toLocaleString('en-US')}/
                 {status.players.max.toLocaleString('en-US')}
@@ -249,7 +249,7 @@ export function ServerCard({ status, onCopy }: ServerCardProps) {
           </button>
 
           {showDebug && (
-            <pre className="mt-1 max-h-60 overflow-x-auto rounded-none border border-line/40 bg-[#0d0d17] p-2.5 font-mono text-[11px] text-[#a6adc8]">
+            <pre className="mt-1 max-h-60 overflow-x-auto rounded-none border border-line/40 bg-night p-2.5 font-mono text-[11px] text-muted">
               {JSON.stringify(status.debug, null, 2)}
             </pre>
           )}

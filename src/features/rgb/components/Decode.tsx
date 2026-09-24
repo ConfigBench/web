@@ -65,11 +65,11 @@ export default function Decode() {
 
   return (
     <div id="decode" className="flex flex-col gap-3">
-      <p className="text-[11px] leading-relaxed text-[#6c7086]">
+      <p className="text-[11px] leading-relaxed text-dim">
         This feature tries to predict the color points in the gradients and where they are, it is not 100% accurate — save
         your gradients as presets to keep them exact.
       </p>
-      <label htmlFor="decode-input" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label htmlFor="decode-input" className="flex flex-col gap-1.5 text-[13px] text-muted">
         Decode
         <textarea
           id="decode-input"
@@ -89,7 +89,7 @@ export default function Decode() {
       >
         <WandSparkles size={15} /> Decode Text
       </button>
-      <label htmlFor="threshold" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label htmlFor="threshold" className="flex flex-col gap-1.5 text-[13px] text-muted">
         <span className="flex items-center gap-1.5">
           <Settings size={13} /> Threshold
         </span>

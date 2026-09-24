@@ -2,8 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTheme } from '../../theme/useTheme'
 import { THEMES } from '../../theme/theme'
 import { cn } from '../../lib/cn'
-
-const EXIT_MS = 110
+import { motionExitMs } from '../../lib/motion'
 
 export function ThemePicker() {
   const { accent, setAccent } = useTheme()
@@ -22,7 +21,7 @@ export function ThemePicker() {
   const close = useCallback(() => {
     setOpen(false)
     window.clearTimeout(exitTimer.current)
-    exitTimer.current = window.setTimeout(() => setMounted(false), EXIT_MS)
+    exitTimer.current = window.setTimeout(() => setMounted(false), motionExitMs('menu'))
   }, [])
 
   useEffect(() => {

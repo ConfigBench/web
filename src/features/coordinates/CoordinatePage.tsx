@@ -12,7 +12,7 @@ import {
 import { Panel } from '../../shared/components/ui/Panel';
 import { DimensionCoordinatePanel } from './components/DimensionCoordinatePanel';
 import { PortalLinkingCard } from './components/PortalLinkingCard';
-import { CoordToasts, type ToastItem } from './components/CoordToasts';
+import { ToastContainer, type ToastItem } from '../../shared/components/ui/ToastContainer';
 
 interface SavedState {
   overworld: BlockCoords;
@@ -240,7 +240,7 @@ export function CoordinatePage() {
       </div>
 
       <PortalLinkingCard result={dualCoords} />
-      <CoordToasts toasts={toasts} onDismiss={dismissToast} />
+      <ToastContainer toasts={toasts} onDismiss={dismissToast} />
     </div>
   );
 }

@@ -47,7 +47,7 @@ export function DragHandle({ orientation, onDrag, showIcon = false }: DragHandle
         <MoveHorizontal
           size={10}
           className={cn(
-            'absolute text-[#6c7086] opacity-0 transition-opacity duration-150 group-hover:opacity-100',
+            'absolute text-dim opacity-0 transition-opacity duration-150 group-hover:opacity-100',
             orientation === 'vertical' ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90' : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
           )}
         />

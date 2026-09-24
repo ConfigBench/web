@@ -37,10 +37,10 @@ export function SkinInspectorForm({
   const isValid = isValidMinecraftIdentifier(inputVal);
 
   return (
-    <div className="flex flex-col gap-3 rounded-none border border-line bg-[#15151f] p-4">
+    <div className="flex flex-col gap-3 rounded-none border border-line bg-surface p-4">
       <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:flex-row sm:items-center">
         <div className="relative flex-1">
-          <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-[#6c7086]">
+          <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-dim">
             <User size={15} />
           </div>
           <input
@@ -48,13 +48,13 @@ export function SkinInspectorForm({
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             placeholder="Enter Minecraft username or UUID (e.g. Notch)..."
-            className="mc-input h-10 w-full pl-9 pr-8 font-mono text-xs text-[#cdd6f4] placeholder:text-[#6c7086]"
+            className="mc-input h-10 w-full pl-9 pr-8 font-mono text-xs text-text placeholder:text-dim"
           />
           {inputVal && (
             <button
               type="button"
               onClick={() => setInputVal('')}
-              className="absolute inset-y-0 right-2.5 flex items-center text-[#6c7086] hover:text-[#cdd6f4]"
+              className="absolute inset-y-0 right-2.5 flex items-center text-dim hover:text-text"
             >
               <X size={14} />
             </button>
@@ -74,7 +74,7 @@ export function SkinInspectorForm({
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line/50 pt-2.5">
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-1">
-            <span className="mr-1 flex items-center gap-1 text-[11px] uppercase text-[#6c7086]">
+            <span className="mr-1 flex items-center gap-1 text-[11px] uppercase text-dim">
               <Layers size={11} />
               Layers:
             </span>
@@ -85,7 +85,7 @@ export function SkinInspectorForm({
                 onClick={() => onLayerFilterChange(filter)}
                 data-active={layerFilter === filter}
                 className={cn(
-                  'mc-btn px-2 py-1 text-[11px] capitalize text-[#a6adc8] hover:text-[#cdd6f4]',
+                  'mc-btn px-2 py-1 text-[11px] capitalize text-muted hover:text-text',
                   layerFilter === filter && '!border-[var(--accent)] !text-[var(--accent)]',
                 )}
               >
@@ -95,7 +95,7 @@ export function SkinInspectorForm({
           </div>
 
           <div className="flex items-center gap-1 border-l border-line pl-2">
-            <span className="mr-1 text-[11px] uppercase text-[#6c7086]">Format:</span>
+            <span className="mr-1 text-[11px] uppercase text-dim">Format:</span>
             {(['png', 'svg'] as const).map((fmt) => (
               <button
                 key={fmt}
@@ -103,7 +103,7 @@ export function SkinInspectorForm({
                 onClick={() => onFormatChange(fmt)}
                 data-active={format === fmt}
                 className={cn(
-                  'mc-btn px-2 py-1 font-mono text-[10px] uppercase text-[#a6adc8] hover:text-[#cdd6f4]',
+                  'mc-btn px-2 py-1 font-mono text-[10px] uppercase text-muted hover:text-text',
                   format === fmt && '!border-[var(--accent)] !text-[var(--accent)]',
                 )}
               >
@@ -115,7 +115,7 @@ export function SkinInspectorForm({
 
         {history.length > 0 && (
           <div className="flex items-center gap-1.5 text-xs">
-            <span className="flex items-center gap-1 text-[11px] text-[#6c7086]">
+            <span className="flex items-center gap-1 text-[11px] text-dim">
               <History size={11} />
               Recent:
             </span>
@@ -127,7 +127,7 @@ export function SkinInspectorForm({
                   setInputVal(name);
                   onSearch(name);
                 }}
-                className="mc-btn px-1.5 py-0.5 font-mono text-[10px] text-[#a6adc8] hover:text-[#cdd6f4]"
+                className="mc-btn px-1.5 py-0.5 font-mono text-[10px] text-muted hover:text-text"
               >
                 {name}
               </button>
@@ -136,7 +136,7 @@ export function SkinInspectorForm({
               type="button"
               onClick={onClearHistory}
               title="Clear history"
-              className="text-[10px] text-[#f38ba8] hover:underline ml-1"
+              className="text-[10px] text-error hover:underline ml-1"
             >
               Clear
             </button>

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '../../../shared/lib/cn';
+import { motionExitMs } from '../../lib/motion';
 
 export interface DropdownOption {
   value: string;
@@ -24,7 +25,6 @@ interface DropdownProps {
   triggerIcon?: ReactNode;
 }
 
-const EXIT_MS = 110;
 const HOVER_CLOSE_MS = 120;
 
 export default function Dropdown({
@@ -62,7 +62,7 @@ export default function Dropdown({
   const closeMenu = useCallback(() => {
     setOpen(false);
     window.clearTimeout(exitTimer.current);
-    exitTimer.current = window.setTimeout(() => setMounted(false), EXIT_MS);
+    exitTimer.current = window.setTimeout(() => setMounted(false), motionExitMs('menu'));
   }, []);
 
   useEffect(() => {
@@ -143,7 +143,7 @@ export default function Dropdown({
         className={cn(
           'flex h-full w-full items-center justify-between gap-1.5 rounded-none px-2.5 text-[13px]',
           !bare && 'mc-btn',
-          highlight ? 'mc-btn-accent' : 'text-[#a6adc8] hover:text-[#cdd6f4]',
+          highlight ? 'mc-btn-accent' : 'text-muted hover:text-text',
         )}
       >
         {triggerIcon ? (
@@ -182,8 +182,8 @@ export default function Dropdown({
                 }}
                 onMouseEnter={() => setActiveIndex(index)}
                 className={cn(
-                  'flex items-center gap-2.5 whitespace-nowrap px-3 py-2 text-left text-[13px] text-[#a6adc8] transition-colors duration-150 hover:bg-[#232333] hover:text-[#cdd6f4]',
-                  isHighlighted && 'bg-[#232333] text-[#cdd6f4]',
+                  'flex items-center gap-2.5 whitespace-nowrap px-3 py-2 text-left text-[13px] text-muted transition-colors duration-150 hover:bg-hover hover:text-text',
+                  isHighlighted && 'bg-hover text-text',
                   isSelected && 'bg-[var(--accent)]/10 text-[var(--accent)]',
                 )}
               >

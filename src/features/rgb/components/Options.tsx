@@ -6,7 +6,7 @@ export default function Options() {
 
   return (
     <div id="options" className="flex flex-col gap-3">
-      <label htmlFor="prefixsuffix" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label htmlFor="prefixsuffix" className="flex flex-col gap-1.5 text-[13px] text-muted">
         Prefix/Suffix
         <input
           id="prefixsuffix"
@@ -15,14 +15,14 @@ export default function Options() {
           onChange={(e) => update({ prefixSuffix: e.target.value })}
           className="w-full mc-input rounded-none px-2.5 py-1.5 text-[13px]"
         />
-        <span className="text-[11px] leading-snug text-[#6c7086]">
+        <span className="text-[11px] leading-snug text-dim">
           Wraps the output — put <span className="font-mono">$t</span> where the gradient text should go (e.g.{' '}
           <span className="font-mono">/nick $t</span>). Without <span className="font-mono">$t</span>, the output is
           replaced by this string.
         </span>
       </label>
       {!isMiniMessage && (
-        <label htmlFor="colorLength" className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+        <label htmlFor="colorLength" className="flex flex-col gap-1.5 text-[13px] text-muted">
           Characters per color
           <input
             id="colorLength"
@@ -36,7 +36,7 @@ export default function Options() {
         </label>
       )}
       {!isMiniMessage && (
-        <label className="flex items-start gap-2.5 text-[13px] text-[#a6adc8]">
+        <label className="flex items-start gap-2.5 text-[13px] text-muted">
           <input
             type="checkbox"
             checked={store.trimSpaces}
@@ -45,7 +45,7 @@ export default function Options() {
           />
           <span>
             Trim colors from spaces
-            <span className="block text-[11px] text-[#6c7086]">
+            <span className="block text-[11px] text-dim">
               Turn this off if you're using empty underlines / strikethroughs
             </span>
           </span>

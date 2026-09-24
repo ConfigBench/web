@@ -55,11 +55,11 @@ export function TextureViewer({ target, onToast }: TextureViewerProps) {
   };
 
   return (
-    <div className="flex flex-col gap-3 rounded-none border border-line bg-[#15151f] p-4">
+    <div className="flex flex-col gap-3 rounded-none border border-line bg-surface p-4">
       <div className="flex items-center justify-between border-b border-line pb-2.5">
         <div className="flex items-center gap-2">
           <ImageIcon size={16} className="text-[var(--accent)]" />
-          <span className="font-mc text-sm text-[#cdd6f4]">Raw Skin Texture Sheet</span>
+          <span className="font-mc text-sm text-text">Raw Skin Texture Sheet</span>
         </div>
         <div className="flex items-center gap-1">
           <button
@@ -67,7 +67,7 @@ export function TextureViewer({ target, onToast }: TextureViewerProps) {
             onClick={() => setShowGrid((v) => !v)}
             data-active={showGrid}
             className={cn(
-              'mc-btn flex h-7 items-center gap-1 rounded-none px-2 text-[11px] text-[#a6adc8] hover:text-[#cdd6f4]',
+              'mc-btn flex h-7 items-center gap-1 rounded-none px-2 text-[11px] text-muted hover:text-text',
               showGrid && '!border-[var(--accent)] !text-[var(--accent)]',
             )}
           >
@@ -80,12 +80,12 @@ export function TextureViewer({ target, onToast }: TextureViewerProps) {
       <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="relative flex h-36 w-36 shrink-0 items-center justify-center overflow-hidden rounded-none border border-line/60 bg-[#0c0c14] p-2">
           {!imgLoaded && !hasError && (
-            <div className="absolute inset-0 flex items-center justify-center bg-[#0c0c14] text-[#6c7086]">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#0c0c14] text-dim">
               <Loader2 size={18} className="animate-spin text-[var(--accent)]" />
             </div>
           )}
           {hasError ? (
-            <div className="flex flex-col items-center justify-center gap-1 text-[#6c7086]">
+            <div className="flex flex-col items-center justify-center gap-1 text-dim">
               <ImageIcon size={20} />
               <span className="text-[10px]">Unavailable</span>
             </div>
@@ -111,10 +111,10 @@ export function TextureViewer({ target, onToast }: TextureViewerProps) {
           )}
         </div>
 
-        <div className="flex flex-1 flex-col justify-between gap-3 text-xs text-[#a6adc8]">
+        <div className="flex flex-1 flex-col justify-between gap-3 text-xs text-muted">
           <div className="flex flex-col gap-1 leading-relaxed">
-            <span className="font-semibold text-[#cdd6f4]">Minecraft 1.8+ Standard 64×64 Texture</span>
-            <p className="text-[11px] text-[#6c7086]">
+            <span className="font-semibold text-text">Minecraft 1.8+ Standard 64×64 Texture</span>
+            <p className="text-[11px] text-dim">
               Standard skin file containing both 1st and 2nd layers for head, body, arms, and legs. Ready to apply directly in the Minecraft Launcher, Minecraft.net profile, or server texture assets.
             </p>
           </div>
@@ -124,7 +124,7 @@ export function TextureViewer({ target, onToast }: TextureViewerProps) {
               type="button"
               onClick={handleDownload}
               disabled={downloading || hasError}
-              className="mc-btn flex h-8 items-center gap-1.5 rounded-none border-[var(--accent)]/50 bg-[#1e1e2b] px-3 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]"
+              className="mc-btn flex h-8 items-center gap-1.5 rounded-none border-[var(--accent)]/50 bg-panel px-3 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]"
             >
               {downloading ? <Loader2 size={13} className="animate-spin" /> : <Download size={13} />}
               <span>Download Minecraft Skin</span>
@@ -134,7 +134,7 @@ export function TextureViewer({ target, onToast }: TextureViewerProps) {
               type="button"
               onClick={handleCopyImage}
               data-active={copiedImage}
-              className="mc-icon-btn h-8 rounded-none px-2.5 text-xs text-[#a6adc8] hover:text-[#cdd6f4]"
+              className="mc-icon-btn h-8 rounded-none px-2.5 text-xs text-muted hover:text-text"
             >
               <span key={copiedImage ? 'check' : 'copy'} className="pop-in flex items-center gap-1.5">
                 {copiedImage ? <Check size={13} className="text-[var(--accent)]" /> : <Copy size={13} />}

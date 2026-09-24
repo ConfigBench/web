@@ -52,27 +52,27 @@ export function SkinPreviewCard({ variation, target, onToast }: SkinPreviewCardP
   };
 
   return (
-    <div className="flex flex-col justify-between rounded-none border border-line bg-[#15151f] p-3 transition-colors hover:border-line/80">
+    <div className="flex flex-col justify-between rounded-none border border-line bg-surface p-3 transition-colors hover:border-line/80">
       <div className="flex items-center justify-between border-b border-line/50 pb-2">
         <div className="flex items-center gap-1.5 min-w-0">
           <span className="h-1.5 w-1.5 rounded-none bg-[var(--accent)] shrink-0" />
-          <span className="font-mc text-xs text-[#cdd6f4] truncate" title={variation.name}>
+          <span className="font-mc text-xs text-text truncate" title={variation.name}>
             {variation.name}
           </span>
         </div>
-        <span className="rounded-none border border-line bg-[#0e0e17] px-1.5 py-0.5 font-mono text-[9px] text-[#6c7086] uppercase shrink-0">
+        <span className="rounded-none border border-line bg-[#0e0e17] px-1.5 py-0.5 font-mono text-[9px] text-dim uppercase shrink-0">
           {variation.hasOverlay ? 'Layer 2' : 'Base'}
         </span>
       </div>
 
       <div className="relative my-3 flex min-h-36 items-center justify-center overflow-hidden rounded-none border border-line/40 bg-[#0a0a12] p-2">
         {!imgLoaded && !hasError && (
-          <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a12] text-[#6c7086]">
+          <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a12] text-dim">
             <Loader2 size={18} className="animate-spin text-[var(--accent)]" />
           </div>
         )}
         {hasError ? (
-          <div className="flex flex-col items-center justify-center gap-1 text-[#6c7086]">
+          <div className="flex flex-col items-center justify-center gap-1 text-dim">
             <ImageIcon size={24} />
             <span className="text-[10px]">Render unavailable</span>
           </div>

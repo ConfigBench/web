@@ -48,7 +48,7 @@ function AnimTabPreview() {
   }, [frames.length, store.speed]);
 
   if (!store.text || store.text.trim() === '') {
-    return <span className="text-[#a6adc8]/25 font-mc">ConfigBench</span>;
+    return <span className="text-muted/25 font-mc">ConfigBench</span>;
   }
   const colors = frames[frameIndex % Math.max(1, frames.length)] ?? [];
   const segments = segmentText(store.text, store.colorLength);
@@ -96,7 +96,7 @@ function SettingsPanel() {
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4">
-      <label className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label className="flex flex-col gap-1.5 text-[13px] text-muted">
         <span className="flex items-center gap-1.5">
           <RulerDimensionLine size={13} /> Gradient Length
         </span>
@@ -110,7 +110,7 @@ function SettingsPanel() {
           className="mc-input rounded-none px-2.5 py-1.5 text-[13px]"
         />
       </label>
-      <label className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label className="flex flex-col gap-1.5 text-[13px] text-muted">
         Speed (ms per frame)
         <input
           id="speed"
@@ -121,7 +121,7 @@ function SettingsPanel() {
           className="mc-input rounded-none px-2.5 py-1.5 text-[13px]"
         />
       </label>
-      <label className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label className="flex flex-col gap-1.5 text-[13px] text-muted">
         Animation Name
         <input
           id="nameinput"
@@ -131,7 +131,7 @@ function SettingsPanel() {
           className="mc-input rounded-none px-2.5 py-1.5 text-[13px]"
         />
       </label>
-      <label className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label className="flex flex-col gap-1.5 text-[13px] text-muted">
         Animation Style
         <Dropdown
           ariaLabel="Animation Style"
@@ -141,7 +141,7 @@ function SettingsPanel() {
           className="h-9"
         />
       </label>
-      <p className="text-[11px] leading-snug text-[#6c7086]">
+      <p className="text-[11px] leading-snug text-dim">
         Gradient Length multiplies how far the gradient scrolls each frame — higher values give a smoother, longer
         animation.
       </p>
@@ -154,13 +154,13 @@ function FormatPanel() {
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-4">
-      <label className="flex flex-col gap-1.5 text-[13px] text-[#a6adc8]">
+      <label className="flex flex-col gap-1.5 text-[13px] text-muted">
         Animation Name key
         <input
           id="namekey"
           value="%name%"
           readOnly
-          className="mc-input rounded-none px-2.5 py-1.5 font-mono text-[13px] text-[#6c7086]"
+          className="mc-input rounded-none px-2.5 py-1.5 font-mono text-[13px] text-dim"
         />
       </label>
       <textarea
@@ -169,7 +169,7 @@ function FormatPanel() {
         onChange={(e) => update({ outputFormat: e.target.value })}
         className="mc-input min-h-36 flex-1 resize-none rounded-none p-2.5 font-mono text-xs leading-relaxed"
       />
-      <p className="text-[11px] leading-snug text-[#6c7086]">
+      <p className="text-[11px] leading-snug text-dim">
         Template for the generated config. <span className="font-mono">%name%</span> → animation name,{' '}
         <span className="font-mono">%speed%</span> → interval, <span className="font-mono">%output:{'  - "$t"'}%</span> →
         one line per frame.
@@ -289,7 +289,7 @@ function AnimTabTool() {
               value={output}
               onClick={copy}
               title="Click to copy"
-              className="mc-output font-mono h-64 w-full resize-none p-3 text-[13px] leading-relaxed whitespace-pre-wrap text-[#cdd6f4] outline-none"
+              className="mc-output font-mono h-64 w-full resize-none p-3 text-[13px] leading-relaxed whitespace-pre-wrap text-text outline-none"
             />
           </Panel>
         </div>

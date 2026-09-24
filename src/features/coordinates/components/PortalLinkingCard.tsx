@@ -9,7 +9,7 @@ export function PortalLinkingCard({ result }: PortalLinkingCardProps) {
   const { overworld, nether, portalLinking } = result;
 
   return (
-    <div className="flex flex-col gap-3 rounded-none border border-line bg-[#15151f] p-4">
+    <div className="flex flex-col gap-3 rounded-none border border-line bg-surface p-4">
       <div className="flex items-center justify-between border-b border-line pb-2.5">
         <div className="flex items-center gap-2">
           <Repeat size={16} className="text-[var(--accent)]" />
@@ -61,7 +61,7 @@ export function PortalLinkingCard({ result }: PortalLinkingCardProps) {
 
       <div className="flex items-start gap-2.5 rounded-none border border-line/40 bg-[#0c0c14] p-2.5">
         <Info size={15} className="text-muted shrink-0 mt-0.5" />
-        <div className="flex flex-col gap-0.5 text-[11px] text-[#a6adc8] leading-relaxed">
+        <div className="flex flex-col gap-0.5 text-[11px] text-muted leading-relaxed">
           <span>
             <strong>Exact 1:1 Portal Pairing:</strong> To prevent Nether portals from pairing with unwanted nearby portals, build a portal at the exact Nether coordinates ({nether.block.x}, {nether.block.y}, {nether.block.z}) matching your Overworld portal.
           </span>

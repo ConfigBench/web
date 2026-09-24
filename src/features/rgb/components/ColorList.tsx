@@ -58,15 +58,15 @@ export default function ColorList({ id = 'text', shadow = false, colors, gradien
   return (
     <div id={`colorlist${id}`} className="flex flex-col gap-2.5">
       <div className="flex items-center gap-2">
-        <h3 className="flex flex-1 items-center gap-2 text-[15px] font-semibold text-[#cdd6f4]">
+        <h3 className="flex flex-1 items-center gap-2 text-[15px] font-semibold text-text">
           <Palette size={17} /> Colors{shadow ? ' (shadow)' : ''}
         </h3>
         <div className="mc-input flex items-center overflow-hidden rounded-md">
-          <button type="button" onClick={() => changeCount(list.length - 1)} className="px-2.5 py-1.5 text-[#a6adc8] transition-colors hover:text-[#cdd6f4]">
+          <button type="button" onClick={() => changeCount(list.length - 1)} className="px-2.5 py-1.5 text-muted transition-colors hover:text-text">
             −
           </button>
-          <span className="w-8 text-center font-mono text-[13px] text-[#cdd6f4]">{list.length}</span>
-          <button type="button" onClick={() => changeCount(list.length + 1)} className="px-2.5 py-1.5 text-[#a6adc8] transition-colors hover:text-[#cdd6f4]">
+          <span className="w-8 text-center font-mono text-[13px] text-text">{list.length}</span>
+          <button type="button" onClick={() => changeCount(list.length + 1)} className="px-2.5 py-1.5 text-muted transition-colors hover:text-text">
             +
           </button>
         </div>
@@ -187,7 +187,7 @@ export default function ColorList({ id = 'text', shadow = false, colors, gradien
                 )}
               />
             )}
-            <span className="w-5 text-center font-mono text-xs text-[#a6adc8]">
+            <span className="w-5 text-center font-mono text-xs text-muted">
               {i + 1}
             </span>
             <button
@@ -195,7 +195,7 @@ export default function ColorList({ id = 'text', shadow = false, colors, gradien
               draggable
               onDragStart={() => setDraggedIndex(i)}
               aria-label={`Reorder color ${i + 1}`}
-              className="cursor-grab rounded p-1 text-[#a6adc8] transition-colors hover:text-[#cdd6f4] active:cursor-grabbing"
+              className="cursor-grab rounded p-1 text-muted transition-colors hover:text-text active:cursor-grabbing"
             >
               <GripVertical size={16} />
             </button>
@@ -251,7 +251,7 @@ export default function ColorList({ id = 'text', shadow = false, colors, gradien
                 next[i] = { ...next[i], hex };
                 setList(sortColors(next));
               }}
-              className="mc-input min-w-0 flex-1 rounded px-2.5 py-1.5 font-mono text-[13px] text-[#cdd6f4]"
+              className="mc-input min-w-0 flex-1 rounded px-2.5 py-1.5 font-mono text-[13px] text-text"
               placeholder="#ffffff"
             />
             <div
@@ -272,11 +272,11 @@ export default function ColorList({ id = 'text', shadow = false, colors, gradien
                 }}
                 className={cn(
                   'mc-input w-12 rounded px-1 py-1.5 text-center font-mono text-[12px]',
-                  store.disperse ? 'opacity-60 text-[#a6adc8]' : 'text-[#cdd6f4]',
+                  store.disperse ? 'opacity-60 text-muted' : 'text-text',
                 )}
                 aria-label={`Position of color ${i + 1}`}
               />
-              <span className="text-[11px] font-mono text-[#a6adc8] select-none">%</span>
+              <span className="text-[11px] font-mono text-muted select-none">%</span>
             </div>
             <button
               type="button"
